@@ -1,22 +1,32 @@
 # Copilot Instructions for AI Coding Agents
 
-This project currently has no source files, documentation, or established conventions. The workspace is empty except for this instructions file.
+## Project Overview
+This repository maintains a clean codebase with automated checks to prevent forbidden files from being committed. It includes GitHub Actions workflows for repository hygiene.
 
-## Guidance for AI Agents
+## Repository Hygiene
+This project enforces strict repository cleanliness through automated workflows:
 
-- **Workspace State:** No code, configuration, or documentation is present. All architectural, workflow, and convention details must be established from scratch.
-- **Project Initialization:** If you are tasked with creating a new project, clarify the intended language, framework, and purpose with the user before proceeding.
-- **File/Folder Structure:** Recommend standard structures for the chosen technology stack. For example, use `src/`, `tests/`, and configuration files as appropriate.
-- **Build/Test/Debug:** Document any build or test commands you add in the README or relevant config files as you create them.
-- **External Dependencies:** List all dependencies in the appropriate manifest (e.g., `package.json`, `requirements.txt`) and document integration points.
-- **Conventions:** If you introduce project-specific patterns, document them in the README and update this file.
+- **Clean Repo Check** (`.github/workflows/clean-repo-check.yml`):
+  - Runs on every push and pull request
+  - Scans for forbidden files: `.DS_Store`, `*.log`, shell histories, cloud storage paths, `.env` files, and Python virtual environments
+  - Optionally lints Python code with Black formatter
+  - Fails CI if any forbidden files are detected
 
-## Example Next Steps
+## File Management Rules
+**Never commit these file types:**
+- macOS system files (`.DS_Store`)
+- Log files (`*.log`) 
+- Shell history files (`.zsh_history`, `.bash_history`)
+- Environment files (`.env`) - use `.env.example` instead
+- Virtual environments (`venv/`, `.venv/`)
+- Cloud storage directories (`Library/CloudStorage/*`, `OneDrive-*/*`)
+- Trash directories
 
-- If starting a Python project, create `src/`, `tests/`, and `requirements.txt`.
-- If starting a Node.js project, create `src/`, `tests/`, and `package.json`.
-- Always update this file and the README as the project evolves.
+## Development Workflow
+1. Before committing, ensure no forbidden files are present
+2. Use `.gitignore` to prevent accidental commits of temporary files
+3. Python code should be formatted with Black before committing
+4. The clean repo check will catch violations in CI/CD
 
----
-
-**Update this file as the codebase grows to reflect new architecture, workflows, and conventions.**
+## Adding New Forbidden Patterns
+Update the `find` command in `.github/workflows/clean-repo-check.yml` to add new file patterns that should never be committed.
