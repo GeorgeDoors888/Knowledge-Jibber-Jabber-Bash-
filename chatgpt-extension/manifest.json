@@ -1,0 +1,16 @@
+{
+    "manifest_version": 2,
+    "name": "Google Drive Search for ChatGPT",
+    "version": "1.0",
+    "description": "Search Google Drive directly from ChatGPT",
+    "permissions": [
+        "https://chat.openai.com/*",
+        "http://localhost:5000/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": ["https://chat.openai.com/*"],
+            "js": ["content-script.js"]
+        }
+    ]
+}

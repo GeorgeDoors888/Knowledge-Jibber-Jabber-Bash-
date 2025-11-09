@@ -1,0 +1,41 @@
+# Core Dependencies
+openai
+pandas
+streamlit
+flask
+
+# Google APIs
+gspread
+oauth2client
+google-api-python-client
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+
+# Document Processing
+PyPDF2
+
+# Advanced Duplicate Detection
+fuzzywuzzy[speedup]
+python-Levenshtein
+imagehash
+Pillow
+requests
+
+# Enhanced String Similarity
+difflib2
+rapidfuzz
+
+# Image Processing & Analysis
+opencv-python-headless
+numpy
+
+# Content Analysis
+textdistance
+scikit-learn
+
+# Utility Libraries
+pathlib2
+tqdm
+colorama
+hashlib2

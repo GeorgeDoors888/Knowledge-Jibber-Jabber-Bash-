@@ -1,0 +1,15 @@
+openai
+gspread
+oauth2client
+PyPDF2
+pandas
+streamlit
+flask
+google-api-python-client
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+googleapiclient
+datetime
+fuzzywuzzy
+python-Levenshtein
